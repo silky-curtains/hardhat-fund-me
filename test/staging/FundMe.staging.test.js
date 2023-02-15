@@ -19,13 +19,8 @@ developmentChains.includes(network.name)
               const withdrawTxResponse = await fundMe.withdraw()
               await withdrawTxResponse.wait(1)
 
-              const endingFundMeBalance = await fundMe.provider.getBalance(
-                  fundMe.address
-              )
-              console.log(
-                  endingFundMeBalance.toString() +
-                      " should equal 0, running assert equal..."
-              )
+              const endingFundMeBalance = await fundMe.provider.getBalance(fundMe.address)
+              console.log(endingFundMeBalance.toString() + " should equal 0, running assert equal...")
               assert.equal(endingFundMeBalance.toString(), "0")
           })
       })
